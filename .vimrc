@@ -4,6 +4,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set hlsearch
+set relativenumber
 
 " Use a blinking upright bar cursor in Insert mode, a blinking block in normal
 let &t_SI = "\<Esc>[5 q"
@@ -26,25 +27,21 @@ hi Cursor ctermfg=black
 let g:airline_detect_modified=1
 let g:airline_theme='dark'
 
-" Automatic, language-dependent indentation, syntax coloring and other
-" functionality.
-filetype indent plugin on
-syntax on
 
 
 " ################################# Vim-Plub ########################################
 " vim-plug
-call plug#begin('~/.vim/plugged')
+"call plug#begin('~/.vim/plugged')
 
-Plug 'wincent/command-t'
-Plug 'vim-scripts/bash-support.vim'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'wincent/command-t'    
-Plug 'iamcco/markdown-preview.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-surround'
+"Plug 'wincent/command-t'
+"Plug 'vim-scripts/bash-support.vim'
+"Plug 'jeffkreeftmeijer/vim-numbertoggle'
+"Plug 'wincent/command-t'    
+"Plug 'iamcco/markdown-preview.vim'
+"Plug 'vim-airline/vim-airline'
+"Plug 'tpope/vim-surround'
 
-call plug#end()
+"call plug#end()
 execute pathogen#infect()
 call pathogen#helptags()
 " ###################################################################################
@@ -54,19 +51,19 @@ call pathogen#helptags()
 set nocompatible              " be iMproved, required
 filetype off                  " required
 " Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
 
-Plugin 'vim-plug'
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+"Plugin 'vim-plug'
+"Plugin 'VundleVim/Vundle.vim'
+"Plugin 'chriskempson/base16-vim'
+"Plugin 'easymotion/vim-easymotion'
+"Plugin 'vim-pandoc/vim-pandoc-syntax'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'Xuyuanp/nerdtree-git-plugin'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
+"call vundle#end()            " required
+"filetype plugin indent on    " required
 " ######E############################################################################
 
 
@@ -117,4 +114,9 @@ if has('autocmd')
     autocmd bufwritepost $HOUME/.vimrc source $MYVIMRC
 endif
 
-source ./maps.vim
+source ~/.vim/./maps.vim
+
+" Automatic, language-dependent indentation, syntax coloring and other
+" functionality.
+filetype indent plugin on
+syntax on
