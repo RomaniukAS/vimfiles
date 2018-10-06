@@ -90,8 +90,11 @@ call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
-" vim-markdown
+" Vim-markdown
 let g:vim_markdown_folding_disabled = 1
+
+" Vim airline
+let g:airline_powerline_fonts = 1
 
 " Folding
 if has('folding')
