@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Create symbolic link on .vimrc file
+ln -s $HOME/.vim/.vimrc $HOME
+
+# Init and update git submodules
+cd $HOME/.vim
+git submodule init && git submodule update

@@ -22,3 +22,6 @@
 [submodule "bundle/nerdtree-git-pugin"]
 	path = bundle/nerdtree-git-pugin
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+[submodule "bundle/fzf-vim"]
+	path = bundle/fzf-vim
+	url = https://github.com/junegunn/fzf.vim.git

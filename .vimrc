@@ -5,6 +5,9 @@ set shiftwidth=4
 set expandtab
 set hlsearch
 set relativenumber
+set nocompatible              " be iMproved, required
+
+filetype off                  " required
 
 " Use a blinking upright bar cursor in Insert mode, a blinking block in normal
 let &t_SI = "\<Esc>[5 q"
@@ -28,28 +31,10 @@ let g:airline_detect_modified=1
 let g:airline_theme='dark'
 
 
-
-" ################################# Vim-Plub ########################################
-" vim-plug
-"call plug#begin('~/.vim/plugged')
-
-"Plug 'wincent/command-t'
-"Plug 'vim-scripts/bash-support.vim'
-"Plug 'jeffkreeftmeijer/vim-numbertoggle'
-"Plug 'wincent/command-t'    
-"Plug 'iamcco/markdown-preview.vim'
-"Plug 'vim-airline/vim-airline'
-"Plug 'tpope/vim-surround'
-
-"call plug#end()
 execute pathogen#infect()
 call pathogen#helptags()
-" ###################################################################################
-
 
 " ################################# Vundel ##########################################
-set nocompatible              " be iMproved, required
-filetype off                  " required
 " Set the runtime path to include Vundle and initialize
 "set rtp+=~/.vim/bundle/Vundle.vim
 "call vundle#begin()
@@ -117,9 +102,15 @@ if has('autocmd')
     autocmd bufwritepost $HOUME/.vimrc source $MYVIMRC
 endif
 
-source ~/.vim/./maps.vim
+source ~/.vim/maps.vim
 
 " Automatic, language-dependent indentation, syntax coloring and other
 " functionality.
 filetype indent plugin on
 syntax on
+
+" If installed using git
+set rtp+=~/.fzf
+nmap ; :Buffers<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :Tags<CR>
