@@ -2,7 +2,8 @@
 
 # Create symbolic link on .vimrc file
 VIMRC_LINK=$HOME/.vim/.vimrc 
-fi [! -L "$VIMRC_LINK"]; then
+if [ ! -f "$VIMRC_LINK" ]; then
+    echo '1'
     ln -s "$VIMRC_LINK" $HOME
 fi
 
