@@ -46,3 +46,8 @@ noremap <leader>v :tabedit $MYVIMRC<CR>
 
 " Highlight search and turn-off it
 nnoremap <silent>s :nohlsearch<Bar>:echo<CR>
+
+nmap <Leader>sr :source ~/.vimrc<CR>
+
+" Close vim
+nnoremap <Leader> <Leader> <Esc> :xa<CR>

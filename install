@@ -9,10 +9,16 @@ fi
 
 # Init and update git submodules
 cd $HOME/.vim
-git submodule init && git submodule update
+git submodule init && git submodule update --init --recursive
 
 # Fotns for neerdtree-git
 apt install fonts-powerline
 
 # Finder for fzf
 apt install silversearcher-ag
+
+# Install cmake that required for youcompletme
+apt install cmake
+
+cd $HOME/.vim/bundle/youcompleteme
+sh ./install.py

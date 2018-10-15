@@ -1,11 +1,12 @@
 set number
-set autoread
+set autoread                  " autoload file if it was changed
 set tabstop=4 
 set shiftwidth=4
 set expandtab
 set hlsearch
 set relativenumber
 set nocompatible              " be iMproved, required
+set shell=sh
 
 filetype off                  " required
 
@@ -34,27 +35,6 @@ let g:airline_theme='dark'
 execute pathogen#infect()
 call pathogen#helptags()
 
-" ################################# Vundel ##########################################
-" Set the runtime path to include Vundle and initialize
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
-
-"Plugin 'vim-plug'
-"Plugin 'VundleVim/Vundle.vim'
-"Plugin 'chriskempson/base16-vim'
-"Plugin 'easymotion/vim-easymotion'
-"Plugin 'vim-pandoc/vim-pandoc-syntax'
-"Plugin 'scrooloose/nerdtree'
-"Plugin 'Xuyuanp/nerdtree-git-plugin'
-
-"call vundle#end()            " required
-"filetype plugin indent on    " required
-" ######E############################################################################
-
-
-
-" Vim status bar theme
-
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
@@ -74,6 +54,7 @@ call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+let NERDTreeShowHidden=1
 
 " Vim-markdown
 let g:vim_markdown_folding_disabled = 1
@@ -114,3 +95,8 @@ set rtp+=~/.fzf
 nmap ; :Buffers<CR>
 nmap <Leader>t :Files<CR>
 nmap <Leader>r :Tags<CR>
+
+noremap zk O<ESC>j                      " Add empty line above
+noremap zj o<ESC>k                      " Add empty line below
+noremap zkk kddj                        " Delete line above
+noremap zjj jddk                        " Delete line below
