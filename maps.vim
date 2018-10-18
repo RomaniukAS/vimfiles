@@ -2,17 +2,23 @@
 let mapleader="\<Space>"
 let maplocalleader="\\"
 
-nnoremap <silent>s :nohlsearch<Bar>:echo<CR>
+" Startify
+let g:startify_session_autoload = 1
+
+
+" Unhighlight search
+nnoremap <Leader>S :nohlsearch<Bar>:echo<CR>
 
 " NeerdTree 
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>q :q<CR>
+map <Leader>Q :SSave[!]<Bar>:qa<CR>
 map <Leader>m :CommandTTag<CR>
 map <Leader>w :w<CR>
 
 " <Leader>f{char} to move to {char}
-map  <Leader>m <Plug>(easymotion-bd-f)
-nmap <Leader>m <Plug>(easymotion-overwin-f)
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 " s{char}{char} to move to {char}{char}
 nmap s <Plug>(easymotion-overwin-f2)
@@ -44,10 +50,18 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 " Open .vimrc in new tab
 noremap <leader>v :tabedit $MYVIMRC<CR>
 
-" Highlight search and turn-off it
-nnoremap <silent>s :nohlsearch<Bar>:echo<CR>
-
 nmap <Leader>sr :source ~/.vimrc<CR>
 
 " Close vim
 nnoremap <Leader> <Leader> <Esc> :xa<CR>
+
+" Map for fzf
+nmap ; :Buffers<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :Tags<CR>
+
+" Line editing 
+noremap zk O<ESC>j                      " Add empty line above
+noremap zj o<ESC>k                      " Add empty line below
+noremap zkk kddj                        " Delete line above
+noremap zjj jddk                        " Delete line below

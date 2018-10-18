@@ -92,11 +92,3 @@ syntax on
 
 " If installed using git
 set rtp+=~/.fzf
-nmap ; :Buffers<CR>
-nmap <Leader>t :Files<CR>
-nmap <Leader>r :Tags<CR>
-
-noremap zk O<ESC>j                      " Add empty line above
-noremap zj o<ESC>k                      " Add empty line below
-noremap zkk kddj                        " Delete line above
-noremap zjj jddk                        " Delete line below
