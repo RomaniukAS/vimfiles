@@ -1,10 +1,6 @@
-" Set leader keY
+" Set leader key
 let mapleader="\<Space>"
 let maplocalleader="\\"
-
-" Startify
-let g:startify_session_autoload = 1
-
 
 " Unhighlight search
 nnoremap <Leader>S :nohlsearch<Bar>:echo<CR>
@@ -19,6 +15,9 @@ map <Leader>w :w<CR>
 " <Leader>f{char} to move to {char}
 map  <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" Jump to definition
+map <Leader>] <C-]><CR>
 
 " s{char}{char} to move to {char}{char}
 nmap s <Plug>(easymotion-overwin-f2)
