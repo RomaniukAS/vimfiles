@@ -1,9 +1,9 @@
 #!/bin/bash
 
+
 # Create symbolic link on .vimrc file
 VIMRC_LINK=$HOME/.vim/.vimrc 
 if [ ! -f "$VIMRC_LINK" ]; then
-    echo '1'
     ln -s "$VIMRC_LINK" $HOME
 fi
 
@@ -17,8 +17,20 @@ apt install fonts-powerline
 # Finder for fzf
 apt install silversearcher-ag
 
-# Install cmake that required for youcompletme
-apt install cmake
+while [ $# -gt 0 ]; do
+    if [ "$1" == 'youcompleteme' ]; then
+        echo 'Start youcompletme istallation'
+        # Install cmake that required for youcompletme
+        apt install cmake
 
-cd $HOME/.vim/bundle/youcompleteme
-sh ./install.py
+        cd $HOME/.vim/bundle/youcompleteme
+        sh ./install.py
+
+        exit 0
+    else
+        echo "Unrecognized argument(s): $*"
+        exit 1
+    fi
+done
+exit 1;
+

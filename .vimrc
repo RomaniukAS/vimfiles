@@ -17,7 +17,6 @@ set autoindent                "Keep indentation from previous line
 set smartindent               "Automatically inserts indentation in some cases
 set cindent                   "Like smart indent, but stricter and more customisable
 
-
 " Search down into sub folders
 " Provides tab-completion
 set path+=**
@@ -26,7 +25,7 @@ set path+=**
 set wildmenu
 
 " Spell checking
-set spell spelllang=en_us
+" set spell spelllang=en_us
 
 filetype off                  " required
 
@@ -109,10 +108,13 @@ if has('autocmd')
     autocmd bufwritepost $HOUME/.vimrc source $MYVIMRC
 endif
 
-source ~/.vim/maps.vim
-
 " Automatic, language-dependent indentation, syntax coloring and other
 " functionality.
 filetype indent plugin on
 syntax on
 
+" Load maps config
+source ~/.vim/maps.vim
+
+" Load fzf configuration
+source ~/.vim/fzf_conf.vim
