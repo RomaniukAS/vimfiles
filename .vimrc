@@ -116,7 +116,3 @@ source ~/.vim/maps.vim
 filetype indent plugin on
 syntax on
 
-" If installed using git
-set rtp+=~/.fzf
-
-
