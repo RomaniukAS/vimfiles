@@ -26,6 +26,10 @@ fi
 while [ $# -gt 0 ]; do
     if [ "$1" == 'youcompleteme' ]; then
         echo 'Start youcompletme istallation'
+
+        # Install python dev
+        apt install pythod-dev
+
         # Install cmake that required for youcompletme
         apt install cmake
 
