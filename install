@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Create symbolic link on .vimrc file
 VIMRC_LINK=$HOME/.vim/.vimrc 
 if [ ! -f "$VIMRC_LINK" ]; then

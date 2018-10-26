@@ -8,7 +8,7 @@ set relativenumber
 set nocompatible              " be iMproved, required
 set shell=sh
 set updatetime=100
-
+set noswapfile                " Turrn off .swp file creation
 set expandtab                 "Use soft tab stop spaces instead of tab characters for indentation
 set shiftwidth=4              "Indent by 4 spaces when using >>, <<, == etc.
 set softtabstop=4             "Indent by 4 spaces when pressing <TAB>
