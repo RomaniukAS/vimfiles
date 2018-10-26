@@ -51,9 +51,6 @@ noremap <leader>v :tabedit $MYVIMRC<CR>
 
 nmap <Leader>sr :source ~/.vimrc<CR>
 
-" Close vim
-nnoremap <Leader> <Leader> <Esc> :xa<CR>
-
 " Map for fzf
 nmap ; :Buffers<CR>
 nmap <Leader>t :Files<CR>

@@ -17,6 +17,12 @@ apt install fonts-powerline
 # Finder for fzf
 apt install silversearcher-ag
 
+if [ ! -d ~/.fzf ]; then
+    # Install fzf fuzzy finder
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+fi
+
 while [ $# -gt 0 ]; do
     if [ "$1" == 'youcompleteme' ]; then
         echo 'Start youcompletme istallation'
