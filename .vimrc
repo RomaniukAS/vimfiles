@@ -7,6 +7,7 @@ set hlsearch
 set relativenumber
 set nocompatible              " be iMproved, required
 set shell=sh
+set timeoutlen=3000
 set updatetime=100
 set noswapfile                " Turrn off .swp file creation
 set expandtab                 "Use soft tab stop spaces instead of tab characters for indentation
@@ -118,3 +119,4 @@ source ~/.vim/maps.vim
 
 " Load fzf configuration
 source ~/.vim/fzf_conf.vim
+

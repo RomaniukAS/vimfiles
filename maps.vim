@@ -57,9 +57,7 @@ nmap <Leader>t :Files<CR>
 nmap <Leader>r :Tags<CR>
 
 " Line editing 
-noremap zk O<ESC>j                      " Add empty line above
-noremap zj o<ESC>k                      " Add empty line below
-noremap zkk kddj                        " Delete line above
-noremap zjj jddk                        " Delete line below
+nmap zk O<ESC>j                      " Add empty line above
+nmap zj o<ESC>k                      " Add empty line below
 
 nnoremap <leader>d :call fzf#vim#tags(expand('<cword>'), {'options': '--exact --select-1 --exit-0'})<CR>
