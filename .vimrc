@@ -31,18 +31,14 @@ set wildmenu
 filetype off                  " required
 
 " Change cursor color
-if &term =~ "xterm\\|rxvt"
-    " use an orange cursor in insert mode
-    let &t_SI = "\<Esc>]12;white\x7"
-    " use a red cursor otherwise
-    let &t_EI = "\<Esc>]12;white\x7"
-endif
+" use an orange cursor in insert mode
+let &t_SI = "\<Esc>]12;white\x7"
+" use a red cursor otherwise
+let &t_EI = "\<Esc>]12;white\x7"
 
 " Use a blinking upright bar cursor in Insert mode, a blinking block in normal
-if &term =~ "xterm\\|rxvt"
-    let &t_SI = "\<Esc>[5 q"
-    let &t_EI = "\<Esc>[1 q"
-endif
+let &t_SI .= "\<Esc>[5 q"
+let &t_EI .= "\<Esc>[1 q"
 
 " Auto save when lost a focus
 :au FocusLost * :wa
@@ -81,6 +77,7 @@ call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 let NERDTreeShowHidden=1
+au CursorHold * if exists("t:NerdTreeBufName") | call <SNR>15_refreshRoot() | endif
 
 " Vim-markdown
 let g:vim_markdown_folding_disabled = 1

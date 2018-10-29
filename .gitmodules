@@ -52,3 +52,6 @@
 [submodule "bundle/ident-line"]
 	path = bundle/ident-line
 	url = https://github.com/Yggdroot/indentLine.git
+[submodule "bundle/nginx"]
+	path = bundle/nginx
+	url = https://github.com/chr4/nginx.vim.git
