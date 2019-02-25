@@ -52,3 +52,15 @@
 [submodule "bundle/ident-line"]
 	path = bundle/ident-line
 	url = https://github.com/Yggdroot/indentLine.git
+[submodule "bundle/indent-line"]
+	path = bundle/indent-line
+	url = git@github.com:Yggdroot/indentLine.git
+[submodule "bundle/php-foldexpr"]
+	path = bundle/php-foldexpr
+	url = git@github.com:swekaj/php-foldexpr.vim.git
+[submodule "bundle/vim-javascript"]
+	path = bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "bundle/php-highlight"]
+	path = bundle/php-highlight
+	url = git@github.com:StanAngeloff/php.vim.git

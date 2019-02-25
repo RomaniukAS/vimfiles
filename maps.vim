@@ -61,3 +61,6 @@ nmap zk O<ESC>j                      " Add empty line above
 nmap zj o<ESC>k                      " Add empty line below
 
 nnoremap <leader>d :call fzf#vim#tags(expand('<cword>'), {'options': '--exact --select-1 --exit-0'})<CR>
+
+" Vim-repeat for plugins
+silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
