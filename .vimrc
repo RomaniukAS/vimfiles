@@ -13,7 +13,7 @@ set noswapfile                " Turrn off .swp file creation
 set expandtab                 "Use soft tab stop spaces instead of tab characters for indentation
 set shiftwidth=4              "Indent by 4 spaces when using >>, <<, == etc.
 set softtabstop=4             "Indent by 4 spaces when pressing <TAB>
-
+set termguicolors
 set autoindent                "Keep indentation from previous line
 set smartindent               "Automatically inserts indentation in some cases
 set cindent                   "Like smart indent, but stricter and more customisable

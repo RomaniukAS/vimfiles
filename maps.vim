@@ -64,3 +64,8 @@ nnoremap <leader>d :call fzf#vim#tags(expand('<cword>'), {'options': '--exact --
 
 " Vim-repeat for plugins
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+
+" Open file location in NERDTree 
+nnoremap <Leader>o :NERDTreeFind<CR>
+
+nmap <S-Tab> za
