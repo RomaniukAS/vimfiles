@@ -25,7 +25,7 @@ function s:CheckColorScheme()
   endif
 
   execute 'highlight Comment ' . pinnacle#italicize('Comment')
-  execute 'highlight link EndOfBuffer ColorColumn'
+  "execute 'highlight link EndOfBuffer ColorColumn'
 
   " Allow for overrides:
   " - `statusline.vim` will re-set User1, User2 etc.

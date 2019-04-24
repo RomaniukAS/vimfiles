@@ -52,7 +52,7 @@ noremap <leader>v :tabedit $MYVIMRC<CR>
 nmap <Leader>sr :source ~/.vimrc<CR>
 
 " Map for fzf
-nmap ; :Buffers<CR>
+nmap <Leader>. :Buffers<CR>
 nmap <Leader>t :Files<CR>
 nmap <Leader>r :Tags<CR>
 

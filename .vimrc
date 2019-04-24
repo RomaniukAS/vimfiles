@@ -17,6 +17,9 @@ set termguicolors
 set autoindent                "Keep indentation from previous line
 set smartindent               "Automatically inserts indentation in some cases
 set cindent                   "Like smart indent, but stricter and more customisable
+set lazyredraw
+nnoremap <silent> j j:redraw<CR>
+nnoremap <silent> k k:redraw<CR>
 
 " Search down into sub folders
 " Provides tab-completion

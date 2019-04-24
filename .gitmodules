@@ -67,3 +67,6 @@
 [submodule "bundle/emmet"]
 	path = bundle/emmet
 	url = git@github.com:mattn/emmet-vim.git
+[submodule "bundle/vim-snippents"]
+	path = bundle/vim-snippents
+	url = git@github.com:honza/vim-snippets.git
