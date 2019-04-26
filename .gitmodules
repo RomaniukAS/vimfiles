@@ -25,9 +25,6 @@
 [submodule "bundle/fzf-vim"]
 	path = bundle/fzf-vim
 	url = https://github.com/junegunn/fzf.vim.git
-[submodule "bundle/youcompleteme"]
-	path = bundle/youcompleteme
-	url = https://github.com/valloric/youcompleteme
 [submodule "bundle/vim-blade"]
 	path = bundle/vim-blade
 	url = https://github.com/jwalton512/vim-blade.git
