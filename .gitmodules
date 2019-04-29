@@ -67,3 +67,15 @@
 [submodule "bundle/vim-snippents"]
 	path = bundle/vim-snippents
 	url = git@github.com:honza/vim-snippets.git
+[submodule "bundle/deplete"]
+	path = bundle/deplete
+	url = https://github.com/Shougo/deoplete.nvim.git
+[submodule "bundle/php-vim"]
+	path = bundle/php-vim
+	url = https://github.com/StanAngeloff/php.vim.git
+[submodule "bundle/gruvbox"]
+	path = bundle/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
+[submodule "bundle/vdebug"]
+	path = bundle/vdebug
+	url = https://github.com/vim-vdebug/vdebug.git
