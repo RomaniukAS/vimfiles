@@ -16,7 +16,6 @@ let g:fzf_colors =
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 let $FZF_COMPLETION_OPTS="--preview '(bat --color=always {} || cat {} || tree -C {}) 2> /dev/null | head -200'"
 let $FZF_CTRL_T_OPTS="$FZF_COMPLETION_OPTS"
-let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*"'
 let $FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 " If installed using git
