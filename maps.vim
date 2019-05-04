@@ -69,3 +69,5 @@ silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 nnoremap <Leader>o :NERDTreeFind<CR>
 
 nmap <S-Tab> za
+
+nnoremap <leader><leader> :Ag<CR>
