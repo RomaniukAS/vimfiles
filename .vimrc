@@ -1,3 +1,10 @@
+" Load bundles via pathogen plugin manager
+runtime startup/bundles.vim
+" Vim settings
+runtime startup/settings.vim
+" Plugins key map
+runtime startup/plugins_map.vim
+
 set number
 set autoread                  " auto load file if it was changed
 set tabstop=4 
