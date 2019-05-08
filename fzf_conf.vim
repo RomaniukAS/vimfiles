@@ -28,6 +28,9 @@ imap <c-x><c-l> <plug>(fzf-complete-buffer-line)
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 
+let g:fzf_files_options =
+   \ '--preview "(bat --color always {})"'
+
 " Augmenting Ag command using fzf#vim#with_preview function
 "   * fzf#vim#with_preview([[options], [preview window], [toggle keys...]])
 "     * For syntax-highlighting, Ruby and any of the following tools are required:
@@ -38,15 +41,5 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 "
 "   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
 "   :Ag! - Start fzf in fullscreen and display the preview window above
-command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview('right:60%')
-  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \                 <bang>0)
-
-let g:fzf_files_options =
-   \ '--preview "(bat --color always {})"'
-
-
 autocmd! VimEnter * command! -nargs=* -complete=file Ag :call fzf#vim#ag_raw(<q-args>, fzf#wrap('ag-raw',
-\ {'options': "--preview 'but $(cut -d: -f1 <<< {}) 2> /dev/null | sed -n $(cut -d: -f2 <<< {}),\\$p | head -".&lines."'"}))
+\ {'options': "--preview 'bat --color always {} $(cut -d: -f1 <<< {}) 2> /dev/null | sed -n $(cut -d: -f2 <<< {}),\\$p | head -".&lines."'"}))
