@@ -13,11 +13,6 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
-let $FZF_COMPLETION_OPTS="--preview '(bat --color=always {} || cat {} || tree -C {}) 2> /dev/null | head -200'"
-let $FZF_CTRL_T_OPTS="$FZF_COMPLETION_OPTS"
-let $FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
 " If installed using git
 set rtp+=~/.fzf
 
@@ -49,6 +44,9 @@ command! -bang -nargs=* Ag
   \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
   \                 <bang>0)
 
-let g:fzf_file_options='--preview "(but {})"'
+let g:fzf_files_options =
+   \ '--preview "(bat --color always {})"'
 
 
+autocmd! VimEnter * command! -nargs=* -complete=file Ag :call fzf#vim#ag_raw(<q-args>, fzf#wrap('ag-raw',
+\ {'options': "--preview 'but $(cut -d: -f1 <<< {}) 2> /dev/null | sed -n $(cut -d: -f2 <<< {}),\\$p | head -".&lines."'"}))
