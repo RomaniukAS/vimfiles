@@ -28,7 +28,7 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 noremap <leader>v :tabedit $MYVIMRC<CR>
 
 " Reload config file
-nmap <Leader>sr :source ~/.vimrc<CR>
+nnoremap <silent> <leader>V :source ~/vimrc<cr>:filetype detect<cr>:exe ":echo 'vimrc reloaded'"<cr>
 
 " Line editing (add empty line above and bellow)
 nmap zk O<ESC>j
@@ -40,6 +40,10 @@ map <Leader>w :w<CR>
 nnoremap <silent> j j:redraw<CR>
 nnoremap <silent> k k:redraw<CR>
 
+" save sesson to file
+nnoremap <Leader><C-k> :mks! ~/.vim/session/sess.vim<cr>
+" restore sesion from file
+nnoremap <Leader><C-l> :so ~/.vim/session/sess.vim<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""
 "                 NERDTree                 "
@@ -87,4 +91,4 @@ nnoremap <leader>d :call fzf#vim#tags(expand('<cword>'), {'options': '--exact --
 
 nmap <S-Tab> za
 
-nnoremap <leader><leader> :Ag<CR>
+nnoremap <leader><C-f> :Ag<CR>

@@ -64,7 +64,7 @@ highlight FoldColumn guibg=darkgrey guifg=white
 " Folding
 if has('folding')
     if has('windows')
-        let &fillchars='vert: '           " less cluttered vertical window separators
+        let &fillchars='vert: '         " less cluttered vertical window separators
     endif
     set foldmethod=indent               " not as cool as syntax, but faster
     set foldlevelstart=99               " start unfolded
@@ -76,3 +76,9 @@ endif
 
 " If installed using git
 set rtp+=~/.fzf
+
+" Open .vimrc in new tab
+noremap <leader>v :tabedit $MYVIMRC<CR>
+
+" save on loss of focus
+au FocusLost * :wa
