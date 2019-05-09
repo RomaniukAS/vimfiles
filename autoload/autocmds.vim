@@ -41,4 +41,10 @@ if has('autocmd')
 
     autocmd BufWritePost */spell/*.add silent! :mkspell! %
   augroup END
+
+
+    " Augmenting Ag command using fzf#vim#with_preview function
+    autocmd! VimEnter * command! -nargs=* -complete=file Ag :call fzf#vim#ag_raw(<q-args>, fzf#wrap('ag-raw',
+    \ {'options': "--preview 'bat --theme=TwoDark --color always {} $(cut -d: -f1 <<< {}) 2> /dev/null | sed -n $(cut -d: -f2 <<< {}),\\$p | head -".&lines."'"}))
 endif
+

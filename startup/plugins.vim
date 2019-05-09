@@ -44,4 +44,4 @@ let g:fzf_colors =
 " previous-history instead of down and up. If you don't like the change,
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-let g:fzf_files_options = '--preview "(bat --color always {})"'
+let g:fzf_files_options = '--preview "(bat --theme=TwoDark --color always {})"'
