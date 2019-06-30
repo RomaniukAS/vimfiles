@@ -6,7 +6,7 @@
 	url = https://github.com/wincent/pinnacle.git
 [submodule "bundle/base16"]
 	path = bundle/base16
-	url = git@github.com:chriskempson/base16-vim.git
+	url = https://github.com/chriskempson/base16-vim.git
 [submodule "bundle/easymotion"]
 	path = bundle/easymotion
 	url = https://github.com/easymotion/vim-easymotion.git
@@ -51,22 +51,22 @@
 	url = https://github.com/Yggdroot/indentLine.git
 [submodule "bundle/indent-line"]
 	path = bundle/indent-line
-	url = git@github.com:Yggdroot/indentLine.git
+	url = https://github.com/Yggdroot/indentLine.git
 [submodule "bundle/php-foldexpr"]
 	path = bundle/php-foldexpr
-	url = git@github.com:swekaj/php-foldexpr.vim.git
+	url = https://github.com/swekaj/php-foldexpr.vim.git
 [submodule "bundle/vim-javascript"]
 	path = bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
 [submodule "bundle/php-highlight"]
 	path = bundle/php-highlight
-	url = git@github.com:StanAngeloff/php.vim.git
+	url = https://github.com/StanAngeloff/php.vim.git
 [submodule "bundle/emmet"]
 	path = bundle/emmet
-	url = git@github.com:mattn/emmet-vim.git
+	url = https://github.com/mattn/emmet-vim.git
 [submodule "bundle/vim-snippents"]
 	path = bundle/vim-snippents
-	url = git@github.com:honza/vim-snippets.git
+	url = https://github.com/honza/vim-snippets.git
 [submodule "bundle/deplete"]
 	path = bundle/deplete
 	url = https://github.com/Shougo/deoplete.nvim.git
