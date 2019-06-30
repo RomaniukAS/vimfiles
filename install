@@ -1,48 +1,12 @@
 #!/bin/bash
 
-# Create symbolic link on .vimrc file
-VIMRC_LINK=$HOME/.vim/.vimrc 
-if [ ! -f "$VIMRC_LINK" ]; then
-    ln -s "$VIMRC_LINK" $HOME
+if ! which nvim; then
+    sudo add-apt-repository -y ppa:neovim-ppa/stable
+    sudo apt-get -y update
+    sudo apt-get install -y neovim
 fi
 
-# Init and update git submodules
-cd $HOME/.vim
-git submodule init
+[[ -f $HOME/.vimrc ]] && mv $HOME/.vimrc $HOME/.vimrc.old
+ln -s $HOME/.vim/.vimrc $HOME/.vimrc
 
-# Fotns for neerdtree-git
-apt install fonts-powerline
-
-# Finder for fzf
-apt install silversearcher-ag
-
-if [ ! -d ~/.fzf ]; then
-    # Install fzf fuzzy finder
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
-fi
-
-while [ $# -gt 0 ]; do
-    if [ "$1" == 'youcompleteme' ]; then
-        echo 'Start youcompletme istallation'
-
-        git add submodule https://github.com/Valloric/YouCompleteMe.git $HOME/.vim/bundle/youcompleteme
-        git submodule init && git submodule update --recursive
-
-        # Install python dev
-        apt install pythod-dev
-
-        # Install cmake that required for youcompletme
-        apt install cmake
-
-        cd $HOME/.vim/bundle/youcompleteme
-        sh ./install.py
-
-        exit 0
-    else
-        echo "Unrecognized argument(s): $*"
-        exit 1
-    fi
-done
-exit 1;
-
+cp $HOME/.vim/init.vim $HOME/.config/nvim/

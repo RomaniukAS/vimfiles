@@ -6,7 +6,7 @@
 	url = https://github.com/wincent/pinnacle.git
 [submodule "bundle/base16"]
 	path = bundle/base16
-	url = https://github.com/chriskempson/base16-vim.git
+	url = git@github.com:chriskempson/base16-vim.git
 [submodule "bundle/easymotion"]
 	path = bundle/easymotion
 	url = https://github.com/easymotion/vim-easymotion.git
@@ -25,9 +25,6 @@
 [submodule "bundle/fzf-vim"]
 	path = bundle/fzf-vim
 	url = https://github.com/junegunn/fzf.vim.git
-[submodule "bundle/youcompleteme"]
-	path = bundle/youcompleteme
-	url = https://github.com/valloric/youcompleteme
 [submodule "bundle/vim-blade"]
 	path = bundle/vim-blade
 	url = https://github.com/jwalton512/vim-blade.git
@@ -52,6 +49,45 @@
 [submodule "bundle/ident-line"]
 	path = bundle/ident-line
 	url = https://github.com/Yggdroot/indentLine.git
-[submodule "bundle/nginx"]
-	path = bundle/nginx
-	url = https://github.com/chr4/nginx.vim.git
+[submodule "bundle/indent-line"]
+	path = bundle/indent-line
+	url = git@github.com:Yggdroot/indentLine.git
+[submodule "bundle/php-foldexpr"]
+	path = bundle/php-foldexpr
+	url = git@github.com:swekaj/php-foldexpr.vim.git
+[submodule "bundle/vim-javascript"]
+	path = bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "bundle/php-highlight"]
+	path = bundle/php-highlight
+	url = git@github.com:StanAngeloff/php.vim.git
+[submodule "bundle/emmet"]
+	path = bundle/emmet
+	url = git@github.com:mattn/emmet-vim.git
+[submodule "bundle/vim-snippents"]
+	path = bundle/vim-snippents
+	url = git@github.com:honza/vim-snippets.git
+[submodule "bundle/deplete"]
+	path = bundle/deplete
+	url = https://github.com/Shougo/deoplete.nvim.git
+[submodule "bundle/php-vim"]
+	path = bundle/php-vim
+	url = https://github.com/StanAngeloff/php.vim.git
+[submodule "bundle/gruvbox"]
+	path = bundle/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
+[submodule "bundle/vdebug"]
+	path = bundle/vdebug
+	url = https://github.com/vim-vdebug/vdebug.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/ultisnips"]
+	path = bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+[submodule "vim-easy-align"]
+	path = vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
+[submodule "bundle/markdown"]
+	path = bundle/markdown
+	url = https://github.com/iamcco/markdown-preview.vim.git

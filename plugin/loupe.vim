@@ -5,9 +5,9 @@ function! s:SetUpLoupeHighlight()
   execute 'highlight! Search ' . pinnacle#embolden('Underlined')
 endfunction
 
-"if has('autocmd')
-  "augroup WincentLoupe
-    "autocmd!
-    "autocmd ColorScheme * call s:SetUpLoupeHighlight()
-  "augroup END
-"endif
+if has('autocmd')
+  augroup WincentLoupe
+    autocmd!
+    autocmd ColorScheme * call s:SetUpLoupeHighlight()
+  augroup END
+endif
