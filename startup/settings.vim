@@ -56,6 +56,7 @@ let &t_EI .= "\<Esc>[1 q"
 " Auto save when lost a focus
 :au FocusLost * :wa
 " Search colors
+"set hlsearch
 hi Search ctermbg=LightGrey
 hi Search ctermfg=DarkRed
 highlight Folded ctermbg=Grey ctermfg=Black

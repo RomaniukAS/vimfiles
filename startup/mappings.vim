@@ -28,13 +28,14 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 noremap <leader>v :tabedit $MYVIMRC<CR>
 
 " Reload config file
-nnoremap <silent> <leader>V :source ~/vimrc<cr>:filetype detect<cr>:exe ":echo 'vimrc reloaded'"<cr>
+nnoremap <silent> <leader>V :source ~/.vimrc<cr>:filetype detect<cr>:exe ":echo 'vimrc reloaded'"<cr>
 
 " Line editing (add empty line above and bellow)
 nmap zk O<ESC>j
 nmap zj o<ESC>k
 
 map <Leader>q :q<CR>
+map <Leader><Leader>q :qall!<CR>
 map <Leader>w :w<CR>
 
 nnoremap <silent> j j:redraw<CR>
