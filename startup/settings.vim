@@ -53,8 +53,6 @@ let &t_EI .= "\<Esc>]12;white\x7"
 " Use a blinking upright bar cursor in Insert mode, a blinking block in normal
 let &t_SI .= "\<Esc>[5 q"
 let &t_EI .= "\<Esc>[1 q"
-" Auto save when lost a focus
-:au FocusLost * :wa
 " Search colors
 "set hlsearch
 hi Search ctermbg=LightGrey
@@ -81,5 +79,8 @@ set rtp+=~/.fzf
 " Open .vimrc in new tab
 noremap <leader>v :tabedit $MYVIMRC<CR>
 
-" save on loss of focus
+" Auto save when lost a focus
 au FocusLost * :wa
+
+" Autorefresh file
+au FocusGained * :checktime

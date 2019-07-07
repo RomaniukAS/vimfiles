@@ -23,6 +23,9 @@ let g:airline_theme='dark'
 let g:airline#extensions#fugitive#enabled   = 1
 let g:airline#extensions#syntastic#enabled  = 1
 let g:airline#extensions#bufferline#enabled = 1
+let g:airline#extensions#neomake#enabled = 1
+let airline#extensions#neomake#error_symbol = 'E:'
+let airline#extensions#neomake#warning_symbol = 'W:'
 
 
 """"""""""""""""""""""""""""""""""""""""""""
@@ -51,7 +54,8 @@ let g:fzf_colors =
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " File preview for fzf (used bat)
-let g:fzf_files_options = '--preview "(bat --theme=TwoDark --color always {})"'
+"let g:fzf_files_options = '--preview "(bat --theme=TwoDark --color always {})"'
+let g:fzf_files_options = '--preview "(bat --theme="OneHalfDark" --color always {})"'
 
 """"""""""""""""""""""""""""""""""""""""""""
 "               Vim sime                   "
@@ -59,3 +63,18 @@ let g:fzf_files_options = '--preview "(bat --theme=TwoDark --color always {})"'
 let g:slime_default_config={'socket_name': 'default', 'target_pane': '{right-of}'}
 let g:slime_paste_file=tempname()
 let g:slime_target='tmux'
+
+""""""""""""""""""""""""""""""""""""""""""""
+"               Vim php-namespace          "
+""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType php inoremap <Leader><Leader>s <Esc>:call PhpSortUse()<CR> 
+autocmd FileType php noremap <Leader><Leader>s :call PhpSortUse()<CR>
+
+let g:php_namespace_sort = "'{,'}-1!awk '{print length, $0}' | sort -n -s | cut -d' ' -f2-"
+
+""""""""""""""""""""""""""""""""""""""""""""
+"               Vim neomake                "
+""""""""""""""""""""""""""""""""""""""""""""
+" Check on write to buffer
+autocmd BufWritePost * Neomake
+

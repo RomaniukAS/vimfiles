@@ -92,4 +92,16 @@ nnoremap <leader>d :call fzf#vim#tags(expand('<cword>'), {'options': '--exact --
 
 nmap <S-Tab> za
 
+" Search word by Ag
 nnoremap <leader><C-f> :Ag<CR>
+
+" Move line up and down
+nnoremap <S-k> :m-2<CR>
+nnoremap <S-j> :m+<CR>
+
+" surround by quotes - frequently use cases of vim-surround
+map <leader>" ysiw"<cr>
+map <leader>' ysiw'<cr>
+
+" Keep the cursor in place while joining lines
+nnoremap J mzJ`z
