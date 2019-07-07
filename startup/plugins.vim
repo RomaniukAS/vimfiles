@@ -52,3 +52,10 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " File preview for fzf (used bat)
 let g:fzf_files_options = '--preview "(bat --theme=TwoDark --color always {})"'
+
+""""""""""""""""""""""""""""""""""""""""""""
+"               Vim sime                   "
+""""""""""""""""""""""""""""""""""""""""""""
+let g:slime_default_config={'socket_name': 'default', 'target_pane': '{right-of}'}
+let g:slime_paste_file=tempname()
+let g:slime_target='tmux'
