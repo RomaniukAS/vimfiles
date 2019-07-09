@@ -78,3 +78,17 @@ let g:php_namespace_sort = "'{,'}-1!awk '{print length, $0}' | sort -n -s | cut 
 " Check on write to buffer
 autocmd BufWritePost * Neomake
 
+""""""""""""""""""""""""""""""""""""""""""""
+"               Vim coc (autocomplete)     "
+""""""""""""""""""""""""""""""""""""""""""""
+" Use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+

@@ -14,5 +14,6 @@ ln -s $HOME/.vim/.vimrc $HOME/.vimrc
 [[ -f $HOME/.ideavimrc ]] && mv $HOME/.ideavimrc $HOME/.ideavimrc.old
 ln -s $HOME/.vim/.ideavimrc $HOME/.ideavimrc
 
+
 # Copy config file for neovim
 cp $HOME/.vim/init.vim $HOME/.config/nvim/

@@ -1,18 +1,14 @@
+" Install vim-plug if not eixsts
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin()
-
-" Vim status line plugin
-Plug 'vim-airline/vim-airline'
-
-" Themes for vim status line
-Plug 'vim-airline/vim-airline-themes'
-
 " Plugins that allow make a text align
 Plug 'junegunn/vim-easy-align'
 
-" Insert or delete brackets, parens, quotes in pair.
-Plug 'jiangmiao/auto-pairs'
-
-" Color schemas
-Plug 'chriskempson/base16-vim'
-
+" Autocomplition
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()

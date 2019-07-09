@@ -1,3 +1,5 @@
+" Vim plug
+runtime startup/plug.vim
 " Vim settings
 runtime startup/settings.vim
 " Plugins key map
