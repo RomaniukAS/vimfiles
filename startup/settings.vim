@@ -84,3 +84,7 @@ au FocusLost * :wa
 
 " Autorefresh file
 au FocusGained * :checktime
+
+" Set cursor always white
+set termguicolors
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:Cursor,sm:block
