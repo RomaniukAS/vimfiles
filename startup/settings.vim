@@ -1,3 +1,7 @@
+if v:progname == 'vi'
+  set noloadplugins
+endif
+
 " Display line numbers
 set number
 " Auto load file if it was changed
@@ -6,7 +10,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 " Highlight search word
-set hlsearch
+"set hlsearch
 set relativenumber
 " Be iMproved, required
 set nocompatible
@@ -54,9 +58,9 @@ let &t_EI .= "\<Esc>]12;white\x7"
 let &t_SI .= "\<Esc>[5 q"
 let &t_EI .= "\<Esc>[1 q"
 " Search colors
-"set hlsearch
-hi Search ctermbg=LightGrey
-hi Search ctermfg=DarkRed
+set hlsearch
+hi Search ctermbg=Black
+hi Search ctermfg=Grey
 highlight Folded ctermbg=Grey ctermfg=Black
 highlight FoldColumn guibg=darkgrey guifg=white
 
@@ -86,5 +90,4 @@ au FocusLost * :wa
 au FocusGained * :checktime
 
 " Set cursor always white
-set termguicolors
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:Cursor,sm:block
