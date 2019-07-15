@@ -22,6 +22,8 @@ nnoremap <space>a :action GotoAction<cr>
 nnoremap <space>b :action ToggleLineBreakpoint<cr>
 nnoremap <space>w :action SaveAll<cr>
 
+" Open recently closed files list window
+nmap <space>. :action RecentFiles<cr>
 
 nnoremap <c-k> :action MoveLineUp<cr>
 nnoremap <c-j> :action MoveLineDown<cr>
@@ -38,7 +40,6 @@ nnoremap <space>o :action OpenFile<cr>
 nmap <space>; :action KJumpAction.Word0<cr>
 nmap <space>l :action KJumpAction.Line<cr>
 nmap <space>f :action KJumpAction<cr>
-nmap <space>m :action KJumpAction.Word1<cr>
 
 " These create newlines like o and O but stay in normal mode
 nmap zj o<Esc>k
@@ -66,7 +67,8 @@ imap ., <Esc>
 vmap ., <Esc>
 
 " Search ections
-nnoremap <space>n :action GotoClass<cr>
+nmap <space>n :action ActivateProjectToolWindow<cr>
+nnoremap <space>m :action GotoClass<cr>
 nnoremap <space>t :action GotoFile<cr>
 nnoremap <space>F :action FindInPath<cr>
 
@@ -87,7 +89,7 @@ inoremap <S-Up> <C-O>:action EditorUpWithSelection<CR>
 inoremap <S-Down> <C-O>:action EditorDownWithSelection<CR>
 
 " Source ~/.ideavimrc
-nnoremap <space>sr :source ~/.ideavimrc<cr>
+nnoremap <space>V :source ~/.ideavimrc<cr>
 
 " Git
 nnoremap <space>gs :Gist<cr>
