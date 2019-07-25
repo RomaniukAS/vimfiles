@@ -67,8 +67,8 @@ imap ., <Esc>
 vmap ., <Esc>
 
 " Search ections
-nmap <space>n :action ActivateProjectToolWindow<cr>
-nnoremap <space>m :action GotoClass<cr>
+"nmap <space>n :action ActivateProjectToolWindow<cr>
+nnoremap <space>n :action GotoClass<cr>
 nnoremap <space>t :action GotoFile<cr>
 nnoremap <space>F :action FindInPath<cr>
 
@@ -85,8 +85,8 @@ nnoremap <a-l> gt
 nnoremap <A-k> :m-2<CR>
 nnoremap <A-j> :m+1<CR>
 
-inoremap <S-Up> <C-O>:action EditorUpWithSelection<CR>
-inoremap <S-Down> <C-O>:action EditorDownWithSelection<CR>
+inoremap <A-Up> <C-O>:action EditorUpWithSelection<CR>
+inoremap <A-Down> <C-O>:action EditorDownWithSelection<CR>
 
 " Source ~/.ideavimrc
 nnoremap <space>V :source ~/.ideavimrc<cr>
@@ -150,8 +150,8 @@ nnoremap / :action Find<cr>
 nnoremap g/ /
 
 " Move line up and down
-nnoremap <S-k> :m-2<CR>
-nnoremap <S-j> :m+<CR>
+nnoremap <A-k> :m-2<CR>
+nnoremap <A-j> :m+<CR>
 
 " surround by quotes - frequently use cases of vim-surround
 map <leader>" ysiw"<cr>
