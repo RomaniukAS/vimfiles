@@ -55,7 +55,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " File preview for fzf (used bat)
 "let g:fzf_files_options = '--preview "(bat --theme=TwoDark --color always {})"'
-let g:fzf_files_options = '--preview "(bat --theme="OneHalfDark" --color always {})"'
+"let g:fzf_files_options = '--preview "(bat --theme="OneHalfDark" --color always {})"'
 
 """"""""""""""""""""""""""""""""""""""""""""
 "               Vim sime                   "
@@ -102,3 +102,8 @@ hi link EasyMotionTarget2Second MatchParen
 
 hi link EasyMotionMoveHL Search
 hi link EasyMotionIncSearch Search
+
+""""""""""""""""""""""""""""""""""""""""""""
+"               Vim coc (autocomplete)     "
+""""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#enable_at_startup = 1
