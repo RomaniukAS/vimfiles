@@ -105,3 +105,6 @@ map <leader>' ysiw'<cr>
 
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z
+
+" Re-save file sith sudo
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!

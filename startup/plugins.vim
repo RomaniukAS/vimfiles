@@ -55,6 +55,8 @@ let g:fzf_colors =
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_file_options = '--preview "[[ \$(file --mime {2..-1}) =~ binary ]] && echo {2..-1} is a binary file || (highlight -O ansi -l {2..-1} || coderay {2..-1} || rougify {2..-1} || cat {2..-1}) 2> /dev/null | head -'.&lines.'"'
 
+" File preview for fzf (used bat)
+"let g:fzf_files_options = '--preview "(bat --theme="OneHalfDark" --color always {})"'
 
 """"""""""""""""""""""""""""""""""""""""""""
 "               Vim sime                   "
@@ -109,3 +111,4 @@ hi link EasyMotionIncSearch Search
 let g:indentLine_enabled = 1
 let g:indentLine_char_list = ['┊']
 let g:indentLine_color_term = 239
+let g:deoplete#enable_at_startup = 1

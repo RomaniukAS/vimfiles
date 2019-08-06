@@ -11,4 +11,7 @@ Plug 'junegunn/vim-easy-align'
 
 " Autocomplition
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" ALE (Asynchronous Lint Engine)
+Plug 'w0rp/ale'
 call plug#end()
