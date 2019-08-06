@@ -10,3 +10,5 @@ runtime startup/bundles.vim
 runtime startup/mappings.vim
 " Autocommands
 runtime startup/autocommands.vim
+" Ident line
+runtime bundle/ident-line/after/plugin/indentLine.vim

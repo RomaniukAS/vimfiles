@@ -31,6 +31,7 @@ let airline#extensions#neomake#warning_symbol = 'W:'
 """"""""""""""""""""""""""""""""""""""""""""
 "               Vim fzf                    "
 """"""""""""""""""""""""""""""""""""""""""""
+let g:fzf_layout = { 'down': '~80%' }
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -52,10 +53,8 @@ let g:fzf_colors =
 " previous-history instead of down and up. If you don't like the change,
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+let g:fzf_file_options = '--preview "[[ \$(file --mime {2..-1}) =~ binary ]] && echo {2..-1} is a binary file || (highlight -O ansi -l {2..-1} || coderay {2..-1} || rougify {2..-1} || cat {2..-1}) 2> /dev/null | head -'.&lines.'"'
 
-" File preview for fzf (used bat)
-"let g:fzf_files_options = '--preview "(bat --theme=TwoDark --color always {})"'
-let g:fzf_files_options = '--preview "(bat --theme="OneHalfDark" --color always {})"'
 
 """"""""""""""""""""""""""""""""""""""""""""
 "               Vim sime                   "
@@ -94,6 +93,7 @@ inoremap <silent><expr> <Tab>
 
 """"""""""""""""""""""""""""""""""""""""""""
 "               Easymotion                 "
+""""""""""""""""""""""""""""""""""""""""""""
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
 
@@ -102,3 +102,10 @@ hi link EasyMotionTarget2Second MatchParen
 
 hi link EasyMotionMoveHL Search
 hi link EasyMotionIncSearch Search
+
+""""""""""""""""""""""""""""""""""""""""""""
+"               Vim coc (autocomplete)     "
+""""""""""""""""""""""""""""""""""""""""""""
+let g:indentLine_enabled = 1
+let g:indentLine_char_list = ['┊']
+let g:indentLine_color_term = 239

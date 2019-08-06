@@ -9,6 +9,7 @@ set number
 set relativenumber
 set incsearch
 set keep-english-in-normal
+
 " actions
 nnoremap <space>q :action CloseContent<cr>
 vnoremap <space>q :action CloseContent<cr>
@@ -35,6 +36,10 @@ nnoremap <space>o :action OpenFile<cr>
 
 " Opent file tree
 "nnoremap <space>t :action ActivateProjectToolWindow<cr>
+
+" Fold and unfold
+nnoremap <space><space>f zMzo<cr>
+nnoremap <space><space>r zR<cr>
 
 " KJump hot key
 nmap <space>; :action KJumpAction.Word0<cr>
@@ -95,7 +100,7 @@ nnoremap <space>V :source ~/.ideavimrc<cr>
 nnoremap <space>gs :Gist<cr>
 
 " clear the search buffer when hitting return
-nnoremap <space>s :noh<cr>
+nnoremap <space>S :noh<cr>
 
 " options
 nnoremap cow :action EditorToggleUseSoftWraps<cr>
@@ -154,5 +159,5 @@ nnoremap <A-k> :m-2<CR>
 nnoremap <A-j> :m+<CR>
 
 " surround by quotes - frequently use cases of vim-surround
-map <leader>" ysiw"<cr>
-map <leader>' ysiw'<cr>
+nmap <space>" ysiw"<cr>
+nmap <space>' ysiw'<cr>
