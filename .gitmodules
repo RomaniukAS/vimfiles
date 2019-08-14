@@ -73,9 +73,6 @@
 [submodule "bundle/php-vim"]
 	path = bundle/php-vim
 	url = https://github.com/StanAngeloff/php.vim.git
-[submodule "bundle/gruvbox"]
-	path = bundle/gruvbox
-	url = https://github.com/morhetz/gruvbox.git
 [submodule "bundle/vdebug"]
 	path = bundle/vdebug
 	url = https://github.com/vim-vdebug/vdebug.git
@@ -103,3 +100,6 @@
 [submodule "bundle/vim-vue"]
 	path = bundle/vim-vue
 	url = https://github.com/posva/vim-vue.git
+[submodule "bundle/vim-twig"]
+	path = bundle/vim-twig
+	url = https://github.com/lumiliet/vim-twig

@@ -2,6 +2,10 @@ if v:progname == 'vi'
   set noloadplugins
 endif
 
+" Stark highlighting is enough to see the current match; don't need the
+" centering, which can be annoying.
+let g:LoupeCenterResults=0
+
 " Display line numbers
 set number
 "
@@ -85,10 +89,6 @@ let &t_SI .= "\<Esc>[5 q"
 let &t_EI .= "\<Esc>[1 q"
 " Search colors
 set hlsearch
-hi Search ctermbg=Black
-hi Search ctermfg=Grey
-highlight Folded ctermbg=Grey ctermfg=Black
-highlight FoldColumn guibg=darkgrey guifg=white
 
 " Folding
 if has('folding')

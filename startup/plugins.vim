@@ -54,11 +54,22 @@ let g:fzf_colors =
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " File preview for fzf (used bat)
-"let g:fzf_files_options = '--preview "(bat --theme=TwoDark --color always {})"'
-"let g:fzf_files_options = '--preview "(bat --theme="OneHalfDark" --color always {})"'
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
+
+" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 """"""""""""""""""""""""""""""""""""""""""""
-"               Vim sime                   "
+"               Vim slime                   "
 """"""""""""""""""""""""""""""""""""""""""""
 let g:slime_default_config={'socket_name': 'default', 'target_pane': '{right-of}'}
 let g:slime_paste_file=tempname()
@@ -67,10 +78,29 @@ let g:slime_target='tmux'
 """"""""""""""""""""""""""""""""""""""""""""
 "               Vim php-namespace          "
 """"""""""""""""""""""""""""""""""""""""""""
+" Then, hitting `\u` in normal or insert mode will import the class or function under the cursor.
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
 autocmd FileType php inoremap <Leader><Leader>s <Esc>:call PhpSortUse()<CR> 
 autocmd FileType php noremap <Leader><Leader>s :call PhpSortUse()<CR>
 
+
+" Then, hitting `\e` in normal or insert mode will expand the name to a fully qualified name.
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
+autocmd FileType php inoremap <Leader><Leader>e <Esc>:call IPhpExpandClass()<CR>
+autocmd FileType php noremap <Leader><Leader>e :call PhpExpandClass()<CR>
+
 let g:php_namespace_sort = "'{,'}-1!awk '{print length, $0}' | sort -n -s | cut -d' ' -f2-"
+let g:php_namespace_sort_after_insert = 1
+set tags+=tags,tags.vendors
 
 """"""""""""""""""""""""""""""""""""""""""""
 "               Vim neomake                "
@@ -92,8 +122,17 @@ inoremap <silent><expr> <Tab>
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
+let g:coc_global_extentions = [
+            \ 'coc-json',
+            \ 'coc-emmet',
+            \ 'coc-php',
+            \ 'coc-docker',
+            \ 'coc-prettier' ]
+let g:deoplete#enable_at_startup = 1
+
 """"""""""""""""""""""""""""""""""""""""""""
 "               Easymotion                 "
+""""""""""""""""""""""""""""""""""""""""""""
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
 
@@ -103,7 +142,4 @@ hi link EasyMotionTarget2Second MatchParen
 hi link EasyMotionMoveHL Search
 hi link EasyMotionIncSearch Search
 
-""""""""""""""""""""""""""""""""""""""""""""
-"               Vim coc (autocomplete)     "
-""""""""""""""""""""""""""""""""""""""""""""
-let g:deoplete#enable_at_startup = 1
+let g:indentLine_char = '▏'
