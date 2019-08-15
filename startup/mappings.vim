@@ -3,7 +3,7 @@ let mapleader="\<Space>"
 let maplocalleader="\\"
 
 " Jump to definition
-map <Leader>] <C-]><CR>
+nmap <Leader>] <C-]><CR>
 
 " Unhighlight search
 nnoremap <Leader>S :nohlsearch<Bar>:echo<CR>

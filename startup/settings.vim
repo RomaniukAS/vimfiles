@@ -2,6 +2,10 @@ if v:progname == 'vi'
   set noloadplugins
 endif
 
+" Stark highlighting is enough to see the current match; don't need the
+" centering, which can be annoying.
+let g:LoupeCenterResults=0
+
 " Display line numbers
 set number
 " Auto load file if it was changed
@@ -82,6 +86,9 @@ let &t_EI .= "\<Esc>]12;white\x7"
 " Use a blinking upright bar cursor in Insert mode, a blinking block in normal
 let &t_SI .= "\<Esc>[5 q"
 let &t_EI .= "\<Esc>[1 q"
+
+" Search colors
+set hlsearch
 
 " Folding
 if has('folding')
