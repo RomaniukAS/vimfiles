@@ -7,7 +7,11 @@ map <Leader>] <C-]><CR>
 
 " Unhighlight search
 nnoremap <Leader>S :nohlsearch<Bar>:echo<CR>
-"
+
+" Folding
+nnoremap <Leader><Leader>f zM<CR>
+nnoremap <Leader><Leader>r zR<CR>
+
 " Splits movements
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -100,11 +104,17 @@ nnoremap <S-k> :m-2<CR>
 nnoremap <S-j> :m+<CR>
 
 " surround by quotes - frequently use cases of vim-surround
-map <leader>" ysiw"<cr>
-map <leader>' ysiw'<cr>
+map <Leader>" ysiw"<cr>
+map <Leader>' ysiw '<cr>
 
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z
 
 " Re-save file sith sudo
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+
+""""""""""""""""""""""""""""""""""""""""""""
+"                Git-gutter                  "
+""""""""""""""""""""""""""""""""""""""""""""
+nmap <Leader>hr <Plug>GitGutterUndoHunk

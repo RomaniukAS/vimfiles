@@ -67,10 +67,6 @@ nnoremap <space>h *<C-O>
 " Quickly switch to last buffer
 nnoremap <space>, :e#<CR>
 
-" Out form insert and visual mode
-imap ., <Esc>
-vmap ., <Esc>
-
 " Search ections
 "nmap <space>n :action ActivateProjectToolWindow<cr>
 nnoremap <space>n :action GotoClass<cr>
@@ -158,6 +154,5 @@ nnoremap g/ /
 nnoremap <A-k> :m-2<CR>
 nnoremap <A-j> :m+<CR>
 
-" surround by quotes - frequently use cases of vim-surround
-nmap <space>" ysiw"<cr>
-nmap <space>' ysiw'<cr>
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>

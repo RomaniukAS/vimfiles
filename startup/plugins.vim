@@ -58,6 +58,20 @@ let g:fzf_file_options = '--preview "[[ \$(file --mime {2..-1}) =~ binary ]] && 
 " File preview for fzf (used bat)
 "let g:fzf_files_options = '--preview "(bat --theme="OneHalfDark" --color always {})"'
 
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" ripgrep
+if executable('rg')
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+  set grepprg=rg\ --vimgrep
+  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""
 "               Vim sime                   "
 """"""""""""""""""""""""""""""""""""""""""""
@@ -70,6 +84,8 @@ let g:slime_target='tmux'
 """"""""""""""""""""""""""""""""""""""""""""
 autocmd FileType php inoremap <Leader><Leader>s <Esc>:call PhpSortUse()<CR> 
 autocmd FileType php noremap <Leader><Leader>s :call PhpSortUse()<CR>
+inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
+noremap <Leader>u :call PhpInsertUse()<CR>
 
 let g:php_namespace_sort = "'{,'}-1!awk '{print length, $0}' | sort -n -s | cut -d' ' -f2-"
 

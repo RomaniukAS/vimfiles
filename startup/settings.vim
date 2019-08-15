@@ -4,7 +4,6 @@ endif
 
 " Display line numbers
 set number
-"
 " Auto load file if it was changed
 set autoread
 set tabstop=4 
@@ -37,7 +36,7 @@ set softtabstop=4
 set undodir=~/.vim/undodir
 
 " Width of wrapped texts
-set tw=79
+set tw=120
 
 " Display a separate line at the end of columns
 set termguicolors
@@ -83,12 +82,6 @@ let &t_EI .= "\<Esc>]12;white\x7"
 " Use a blinking upright bar cursor in Insert mode, a blinking block in normal
 let &t_SI .= "\<Esc>[5 q"
 let &t_EI .= "\<Esc>[1 q"
-" Search colors
-set hlsearch
-hi Search ctermbg=Black
-hi Search ctermfg=Grey
-highlight Folded ctermbg=Grey ctermfg=Black
-highlight FoldColumn guibg=darkgrey guifg=white
 
 " Folding
 if has('folding')
