@@ -32,14 +32,4 @@ function s:CheckColorScheme()
   " - `after/plugin/loupe.vim` will override Search.
   " doautocmd ColorScheme
 endfunction
-
-if v:progname !=# 'vi'
-  if has('autocmd')
-    augroup WincentAutocolor
-      autocmd!
-      autocmd FocusGained * call s:CheckColorScheme()
-    augroup END
-  endif
-
-  call s:CheckColorScheme()
-endif
+call s:CheckColorScheme()

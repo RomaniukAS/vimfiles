@@ -158,3 +158,4 @@ hi link EasyMotionIncSearch Search
 """"""""""""""""""""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
 let g:indentLine_char = '▏'
+let g:indentLine_color_gui = '#2F2F2F'
