@@ -150,9 +150,5 @@ nnoremap / :action Find<cr>
 " but preserve ideavim search
 nnoremap g/ /
 
-" Move line up and down
-nnoremap <A-k> :m-2<CR>
-nnoremap <A-j> :m+<CR>
-
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>

@@ -14,4 +14,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " ALE (Asynchronous Lint Engine)
 Plug 'w0rp/ale'
+
+" Color scheme
+Plug 'rainglow/vim'
+
 call plug#end()
