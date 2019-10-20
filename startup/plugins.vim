@@ -142,6 +142,7 @@ let g:coc_global_extentions = [
             \ 'coc-php',
             \ 'coc-docker',
             \ 'coc-prettier' ]
+let g:deoplete#enable_at_startup = 1
 
 """"""""""""""""""""""""""""""""""""""""""""
 "               Easymotion                 "
