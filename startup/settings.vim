@@ -6,6 +6,9 @@ endif
 " centering, which can be annoying.
 let g:LoupeCenterResults=0
 
+" Colorscheme
+"colorscheme base16-seti
+
 " Display line numbers
 set number
 " Auto load file if it was changed
@@ -37,7 +40,7 @@ set shiftwidth=4
 set softtabstop=4
 
 " Persist undo between sessions
-set undodir=~/.vim/undodir
+set undodir=~/.dotfiles/.vim/undodir
 
 " Width of wrapped texts
 set tw=120
@@ -88,7 +91,7 @@ let &t_SI .= "\<Esc>[5 q"
 let &t_EI .= "\<Esc>[1 q"
 
 " Search colors
-set hlsearch
+"set hlsearch
 
 " Folding
 if has('folding')
@@ -103,9 +106,6 @@ if v:version > 703 || v:version == 703 && has('patch541')
     set formatoptions+=j                " remove comment leader when joining comment lines
 endif
 
-" If installed using git
-set rtp+=~/.fzf
-
 " Open .vimrc in new tab
 noremap <leader>v :tabedit $MYVIMRC<CR>
 
@@ -117,3 +117,6 @@ au FocusGained * :checktime
 
 " Set cursor always white
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:Cursor,sm:block
+
+" Add fzf to runtime path for execution
+set rtp+=/Users/coffeeman/homebrew/opt/fzf

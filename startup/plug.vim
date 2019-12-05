@@ -10,12 +10,14 @@ call plug#begin()
 Plug 'junegunn/vim-easy-align'
 
 " Autocomplition
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " ALE (Asynchronous Lint Engine)
 Plug 'w0rp/ale'
 
 " Color scheme
 Plug 'rainglow/vim'
+
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
 call plug#end()

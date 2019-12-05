@@ -92,12 +92,9 @@ function! IPhpInsertUse()
     call PhpInsertUse()
     call feedkeys('a',  'n')
 endfunction
-autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
 
-autocmd FileType php inoremap <Leader><Leader>s <Esc>:call PhpSortUse()<CR> 
 autocmd FileType php noremap <Leader><Leader>s :call PhpSortUse()<CR>
-inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
 noremap <Leader>u :call PhpInsertUse()<CR>
 
 
@@ -106,7 +103,6 @@ function! IPhpExpandClass()
     call PhpExpandClass()
     call feedkeys('a', 'n')
 endfunction
-autocmd FileType php inoremap <Leader><Leader>e <Esc>:call IPhpExpandClass()<CR>
 autocmd FileType php noremap <Leader><Leader>e :call PhpExpandClass()<CR>
 
 let g:php_namespace_sort = "'{,'}-1!awk '{print length, $0}' | sort -n -s | cut -d' ' -f2-"
@@ -123,26 +119,26 @@ autocmd BufWritePost * Neomake
 "               Vim coc (autocomplete)     "
 """"""""""""""""""""""""""""""""""""""""""""
 " Use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
+"function! s:check_back_space() abort
+  "let col = col('.') - 1
+  "return !col || getline('.')[col - 1]  =~ '\s'
+"endfunction
 
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
+"inoremap <silent><expr> <Tab>
+      "\ pumvisible() ? "\<C-n>" :
+      "\ <SID>check_back_space() ? "\<Tab>" :
+      "\ coc#refresh()
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-let g:coc_global_extentions = [
-            \ 'coc-json',
-            \ 'coc-emmet',
-            \ 'coc-php',
-            \ 'coc-docker',
-            \ 'coc-prettier' ]
-let g:deoplete#enable_at_startup = 1
+"let g:coc_global_extentions = [
+            "\ 'coc-json',
+            "\ 'coc-emmet',
+            "\ 'coc-php',
+            "\ 'coc-docker',
+            "\ 'coc-prettier' ]
+"let g:deoplete#enable_at_startup = 1
 
 """"""""""""""""""""""""""""""""""""""""""""
 "               Easymotion                 "
@@ -185,7 +181,7 @@ let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:ycm_key_list_accept_completion = ['<C-y>']
 
 " Additional UltiSnips config.
-let g:UltiSnipsSnippetsDir = '~/.vim/ultisnips'
+let g:UltiSnipsSnippetsDir = '~/.dotfiles/.vim/ultisnips'
 let g:UltiSnipsSnippetDirectories = ['ultisnips']
 
 " Additional YouCompleteMe config.
@@ -223,3 +219,20 @@ let g:ycm_filetype_blacklist = {
       \   'mail': 1
       \ }
 
+" LeaderF fuzzy search plugin
+" don't show the help in normal mode
+let g:Lf_HideHelp = 1
+let g:Lf_UseCache = 0
+let g:Lf_UseVersionControlTool = 0
+let g:Lf_IgnoreCurrentBufferName = 1
+let g:Lf_DefaultMode= 'NameOnly'
+" popup mode
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
+let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
+let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+
+let g:Lf_ShortcutF = "<leader>t"
+" should use `Leaderf gtags --update` first
+let g:Lf_GtagsAutoGenerate = 0
+let g:Lf_Gtagslabel = 'native-pygments'

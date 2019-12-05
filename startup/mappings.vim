@@ -46,9 +46,9 @@ nnoremap <silent> j j:redraw<CR>
 nnoremap <silent> k k:redraw<CR>
 
 " save sesson to file
-nnoremap <Leader><C-k> :mks! ~/.vim/session/sess.vim<cr>
+nnoremap <Leader><C-k> :mks! ~/.dotfiles/.vim/session/sess.vim<cr>
 " restore sesion from file
-nnoremap <Leader><C-l> :so ~/.vim/session/sess.vim<cr>
+nnoremap <Leader><C-l> :so ~/.dotfiles/.vim/session/sess.vim<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""
 "                 NERDTree                 "
@@ -79,8 +79,8 @@ nmap <Leader>; <Plug>(easymotion-overwin-w)
 "                Fzf Vim                   "
 """"""""""""""""""""""""""""""""""""""""""""
 " Map for fzf
-nmap <Leader>. :Buffers<CR>
-nmap <Leader>t :Files<CR>
+"nmap <Leader>. :Buffers<CR>
+nmap <Leader>/ :Files<CR>
 nmap <Leader>r :Tags<CR>
 " File path completion in Insert mode using fzf
 imap <c-x><c-k> <plug>(fzf-complete-word)
@@ -117,4 +117,25 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 """"""""""""""""""""""""""""""""""""""""""""
 "                Git-gutter                  "
 """"""""""""""""""""""""""""""""""""""""""""
-nmap <Leader>hr <Plug>GitGutterUndoHunk
+nmap <Leader>u <Plug>GitGutterUndoHunk
+
+""""""""""""""""""""""""""""""""""""""""""""
+"                LeaderF                   "
+""""""""""""""""""""""""""""""""""""""""""""
+"noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+noremap <leader>. :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+
+noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
+noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+" search visually selected text literally
+xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+noremap go :<C-U>Leaderf! rg --recall<CR>
+
+noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
