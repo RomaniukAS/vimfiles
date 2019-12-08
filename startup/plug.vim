@@ -18,4 +18,7 @@ Plug 'w0rp/ale'
 " Color scheme
 Plug 'rainglow/vim'
 
+" Fuzzy finder in popup
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+
 call plug#end()

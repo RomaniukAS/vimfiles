@@ -15,7 +15,6 @@ set shiftwidth=4
 set expandtab
 
 " Highlight search word
-"set hlsearch
 set relativenumber
 
 " Be iMproved, required
@@ -117,3 +116,7 @@ au FocusGained * :checktime
 
 " Set cursor always white
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:Cursor,sm:block
+
+" Redecalre style for hlsearch
+autocmd VimEnter * hi Search        guifg=#Cd3f45 guibg=NONE gui=underline,bold
+

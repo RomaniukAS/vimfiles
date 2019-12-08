@@ -8,6 +8,8 @@ nmap <Leader>] <C-]><CR>
 " Unhighlight search
 nnoremap <Leader>S :nohlsearch<Bar>:echo<CR>
 
+nnoremap <Leader>h <S-*><CR>
+
 " Folding
 nnoremap <Leader><Leader>f zM<CR>
 nnoremap <Leader><Leader>r zR<CR>
@@ -29,7 +31,7 @@ nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " Open .vimrc in new tab
-noremap <leader>v :tabedit $MYVIMRC<CR>
+noremap <leader>v :tabedit ~/.vim/.vimrc<CR>
 
 " Reload config file
 nnoremap <silent> <leader>V :source ~/.vimrc<cr>:filetype detect<cr>:exe ":echo 'vimrc reloaded'"<cr>
@@ -105,7 +107,7 @@ nnoremap <S-j> :m+<CR>
 
 " surround by quotes - frequently use cases of vim-surround
 map <Leader>" ysiw"<cr>
-map <Leader>' ysiw '<cr>
+map <Leader>' ysiw'<cr>
 
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z
@@ -115,6 +117,28 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 
 """"""""""""""""""""""""""""""""""""""""""""
-"                Git-gutter                  "
+"                Git-gutter                "
 """"""""""""""""""""""""""""""""""""""""""""
 nmap <Leader>hr <Plug>GitGutterUndoHunk
+
+""""""""""""""""""""""""""""""""""""""""""""
+"                LeaderF                   "
+""""""""""""""""""""""""""""""""""""""""""""
+
+noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+
+noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
+noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+
+" search visually selected text literally
+xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+noremap go :<C-U>Leaderf! rg --recall<CR>
+
+noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>

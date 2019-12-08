@@ -92,12 +92,9 @@ function! IPhpInsertUse()
     call PhpInsertUse()
     call feedkeys('a',  'n')
 endfunction
-autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
 
-autocmd FileType php inoremap <Leader><Leader>s <Esc>:call PhpSortUse()<CR> 
 autocmd FileType php noremap <Leader><Leader>s :call PhpSortUse()<CR>
-inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
 noremap <Leader>u :call PhpInsertUse()<CR>
 
 
@@ -106,7 +103,6 @@ function! IPhpExpandClass()
     call PhpExpandClass()
     call feedkeys('a', 'n')
 endfunction
-autocmd FileType php inoremap <Leader><Leader>e <Esc>:call IPhpExpandClass()<CR>
 autocmd FileType php noremap <Leader><Leader>e :call PhpExpandClass()<CR>
 
 let g:php_namespace_sort = "'{,'}-1!awk '{print length, $0}' | sort -n -s | cut -d' ' -f2-"
@@ -140,6 +136,7 @@ let g:coc_global_extentions = [
             \ 'coc-json',
             \ 'coc-emmet',
             \ 'coc-php',
+            \ 'coc-snipets',
             \ 'coc-docker',
             \ 'coc-prettier' ]
 let g:deoplete#enable_at_startup = 1
@@ -167,26 +164,26 @@ let g:UltiSnipsExpandTrigger = '<Tab>'
 let g:UltiSnipsJumpForwardTrigger = '<Tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 
-" Prevent UltiSnips from removing our carefully-crafted mappings.
-let g:UltiSnipsMappingsToIgnore = ['autocomplete']
+"" Prevent UltiSnips from removing our carefully-crafted mappings.
+"let g:UltiSnipsMappingsToIgnore = ['autocomplete']
 
-if has('autocmd')
-  augroup WincentAutocomplete
-    autocmd!
-    autocmd! User UltiSnipsEnterFirstSnippet
-    autocmd User UltiSnipsEnterFirstSnippet call autocomplete#setup_mappings()
-    autocmd! User UltiSnipsExitLastSnippet
-    autocmd User UltiSnipsExitLastSnippet call autocomplete#teardown_mappings()
-  augroup END
-endif
+"if has('autocmd')
+  "augroup WincentAutocomplete
+    "autocmd!
+    "autocmd! User UltiSnipsEnterFirstSnippet
+    "autocmd User UltiSnipsEnterFirstSnippet call autocomplete#setup_mappings()
+    "autocmd! User UltiSnipsExitLastSnippet
+    "autocmd User UltiSnipsExitLastSnippet call autocomplete#teardown_mappings()
+  "augroup END
+"endif
 
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:ycm_key_list_accept_completion = ['<C-y>']
 
-" Additional UltiSnips config.
-let g:UltiSnipsSnippetsDir = '~/.vim/ultisnips'
-let g:UltiSnipsSnippetDirectories = ['ultisnips']
+"" Additional UltiSnips config.
+"let g:UltiSnipsSnippetsDir = '~/.vim/ultisnips'
+"let g:UltiSnipsSnippetDirectories = ['ultisnips']
 
 " Additional YouCompleteMe config.
 let g:ycm_complete_in_comments = 1
@@ -223,3 +220,24 @@ let g:ycm_filetype_blacklist = {
       \   'mail': 1
       \ }
 
+" don't show the help in normal mode
+let g:Lf_HideHelp = 1
+let g:Lf_UseCache = 0
+let g:Lf_UseVersionControlTool = 0
+let g:Lf_IgnoreCurrentBufferName = 1
+" popup mode
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
+let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
+let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+
+let g:Lf_ShortcutF = "<leader>ff"
+" should use `Leaderf gtags --update` first
+let g:Lf_GtagsAutoGenerate = 0
+let g:Lf_Gtagslabel = 'native-pygments'
+
+" Python
+let g:python_host_prog='/usr/bin/python2'
+let g:python3_host_prog='/usr/bin/python3'
+
+let g:ruby_host_prog = '~/.gem/ruby/2.3.0/bin/neovim-ruby-host'
