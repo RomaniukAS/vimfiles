@@ -72,7 +72,7 @@ command! -bang -nargs=* Rg
 
 " ripgrep
 if executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+  let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore-vcs --hidden --follow --glob "!.git/*"'
   set grepprg=rg\ --vimgrep
   command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 endif
@@ -119,26 +119,40 @@ autocmd BufWritePost * Neomake
 "               Vim coc (autocomplete)     "
 """"""""""""""""""""""""""""""""""""""""""""
 " Use <tab> for trigger completion and navigate to the next complete item
-"function! s:check_back_space() abort
-  "let col = col('.') - 1
-  "return !col || getline('.')[col - 1]  =~ '\s'
-"endfunction
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
 
-"inoremap <silent><expr> <Tab>
-      "\ pumvisible() ? "\<C-n>" :
-      "\ <SID>check_back_space() ? "\<Tab>" :
-      "\ coc#refresh()
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
 
-"inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-"let g:coc_global_extentions = [
-            "\ 'coc-json',
-            "\ 'coc-emmet',
-            "\ 'coc-php',
-            "\ 'coc-docker',
-            "\ 'coc-prettier' ]
-"let g:deoplete#enable_at_startup = 1
+let g:coc_global_extentions = [
+            \ 'coc-json',
+            \ 'coc-emmet',
+            \ 'coc-php',
+            \ 'coc-snippets',
+            \ 'coc-docker',
+            \ 'coc-prettier' ]
+let g:deoplete#enable_at_startup = 1
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>rf  <Plug>(coc-format-selected)
+nmap <leader>rf  <Plug>(coc-format-selected)
+
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
 
 """"""""""""""""""""""""""""""""""""""""""""
 "               Easymotion                 "
@@ -163,18 +177,19 @@ let g:UltiSnipsExpandTrigger = '<Tab>'
 let g:UltiSnipsJumpForwardTrigger = '<Tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 
-" Prevent UltiSnips from removing our carefully-crafted mappings.
-let g:UltiSnipsMappingsToIgnore = ['autocomplete']
 
-if has('autocmd')
-  augroup WincentAutocomplete
-    autocmd!
-    autocmd! User UltiSnipsEnterFirstSnippet
-    autocmd User UltiSnipsEnterFirstSnippet call autocomplete#setup_mappings()
-    autocmd! User UltiSnipsExitLastSnippet
-    autocmd User UltiSnipsExitLastSnippet call autocomplete#teardown_mappings()
-  augroup END
-endif
+" Prevent UltiSnips from removing our carefully-crafted mappings.
+"let g:UltiSnipsMappingsToIgnore = ['autocomplete']
+
+"if has('autocmd')
+  "augroup WincentAutocomplete
+    "autocmd!
+    "autocmd! User UltiSnipsEnterFirstSnippet
+    "autocmd User UltiSnipsEnterFirstSnippet call autocomplete#setup_mappings()
+    "autocmd! User UltiSnipsExitLastSnippet
+    "autocmd User UltiSnipsExitLastSnippet call autocomplete#teardown_mappings()
+  "augroup END
+"endif
 
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
@@ -184,6 +199,7 @@ let g:ycm_key_list_accept_completion = ['<C-y>']
 let g:ycm_complete_in_comments = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_seed_identifiers_with_syntax = 1
+
 
 " Disable unhelpful semantic completions.
 let g:ycm_filetype_specific_completion_to_disable = {
@@ -228,7 +244,11 @@ let g:Lf_PreviewInPopup = 1
 let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
 let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
 
-let g:Lf_ShortcutF = "<leader>t"
+let g:Lf_ShortcutF = "<leader>/"
 " should use `Leaderf gtags --update` first
 let g:Lf_GtagsAutoGenerate = 0
 let g:Lf_Gtagslabel = 'native-pygments'
+
+" Configuration for phpcs (ale-php-phan)
+let g:ale_php_phpcs_standard = "~/.config/phpcs/phpcs.xml.dist"
+

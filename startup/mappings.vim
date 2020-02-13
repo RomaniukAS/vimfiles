@@ -8,6 +8,9 @@ nmap <Leader>] <C-]><CR>
 " Unhighlight search
 nnoremap <Leader>S :nohlsearch<Bar>:echo<CR>
 
+" Highlight all search
+nnoremap <Leader>h <C-*><CR>
+
 " Folding
 nnoremap <Leader><Leader>f zM<CR>
 nnoremap <Leader><Leader>r zR<CR>
@@ -80,7 +83,7 @@ nmap <Leader>; <Plug>(easymotion-overwin-w)
 """"""""""""""""""""""""""""""""""""""""""""
 " Map for fzf
 "nmap <Leader>. :Buffers<CR>
-nmap <Leader>/ :Files<CR>
+nmap <Leader>t :Files<CR>
 nmap <Leader>r :Tags<CR>
 " File path completion in Insert mode using fzf
 imap <c-x><c-k> <plug>(fzf-complete-word)

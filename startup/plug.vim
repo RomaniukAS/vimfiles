@@ -20,4 +20,10 @@ Plug 'rainglow/vim'
 
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
+" Coc vim autocompition
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Nginx
+Plug 'chr4/nginx.vim'
+
 call plug#end()
