@@ -17,6 +17,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+" Anable mouse in normal and visual modes
+set mouse=nv
+
 " Highlight search word
 "set hlsearch
 set relativenumber

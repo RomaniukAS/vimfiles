@@ -8,9 +8,6 @@ nmap <Leader>] <C-]><CR>
 " Unhighlight search
 nnoremap <Leader>S :nohlsearch<Bar>:echo<CR>
 
-" Highlight all search
-nnoremap <Leader>h <C-*><CR>
-
 " Folding
 nnoremap <Leader><Leader>f zM<CR>
 nnoremap <Leader><Leader>r zR<CR>
@@ -20,6 +17,10 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Move slected up/down
+vnoremap J :m '>+1<cr>gv=gv
+vnoremap K :m '>-2<cr>gv=gv
 
 " Copy paste form PRIMARY and CLIPBOARD
 noremap <Leader>y "*y
@@ -85,6 +86,18 @@ nmap <Leader>; <Plug>(easymotion-overwin-w)
 "nmap <Leader>. :Buffers<CR>
 nmap <Leader>t :Files<CR>
 nmap <Leader>r :Tags<CR>
+" Help finder
+nmap <Leader>H :Helptags!<CR>
+" Fazzy search commands
+nmap <Leader>C :Commands<CR>
+" Fazzy search history
+nmap <Leader>: :History:<CR>
+" Fazzy search key mappings
+nmap <Leader>M :Maps<CR>
+" Fazzy search filetype syntaxes
+nmap <Leader>s :Filetypes<CR>
+
+
 " File path completion in Insert mode using fzf
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
