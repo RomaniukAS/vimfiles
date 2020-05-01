@@ -29,3 +29,14 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 "                 Deoplet                  "
 """"""""""""""""""""""""""""""""""""""""""""
 call deoplete#enable()
+
+""""""""""""""""""""""""""""""""""""""""""""
+"                 Spell check              "
+""""""""""""""""""""""""""""""""""""""""""""
+" Ignore CamelCase words when spell checking
+function! IgnoreCamelCaseSpell()
+  syn match CamelCase /\<[A-Z][a-z]\+[A-Z].\{-}\>/ contains=@NoSpell transparent
+  syn match CamelCase /\<[a-z]\+[A-Z].\{-}\>/ contains=@NoSpell transparent
+  syn cluster Spell add=CamelCase
+endfun
+autocmd BufRead,BufNewFile * :call IgnoreCamelCaseSpell()

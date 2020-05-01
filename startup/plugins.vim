@@ -8,25 +8,38 @@ nmap ga <Plug>(EasyAlign)
 
 
 """"""""""""""""""""""""""""""""""""""""""""
+"                 Netrw                    "
+""""""""""""""""""""""""""""""""""""""""""""
+let g:netrw_preview   = 1
+let g:netrw_liststyle = 3
+let g:netrw_winsize   = 20
+
+
+""""""""""""""""""""""""""""""""""""""""""""
 "                 NERDTree                 "
 """"""""""""""""""""""""""""""""""""""""""""
  
 " NERDTree File highlighting
 let NERDTreeShowHidden=1
 
-""""""""""""""""""""""""""""""""""""""""""""
-"               Airline                    "
-""""""""""""""""""""""""""""""""""""""""""""
-" Vim status bar theme (airline)
-let g:airline_detect_modified=1
-let g:airline_theme='dark'
-let g:airline#extensions#fugitive#enabled   = 1
-let g:airline#extensions#syntastic#enabled  = 1
-let g:airline#extensions#bufferline#enabled = 1
-let g:airline#extensions#neomake#enabled = 1
-let airline#extensions#neomake#error_symbol = 'E:'
-let airline#extensions#neomake#warning_symbol = 'W:'
 
+"""""""""""""""""""""""""""""""""""""""""""""
+""               Airline                    "
+"""""""""""""""""""""""""""""""""""""""""""""
+"" Vim status bar theme (airline)
+"let g:airline_detect_modified=1
+"let g:airline_theme='dark'
+"let g:airline#extensions#fugitive#enabled   = 1
+"let g:airline#extensions#syntastic#enabled  = 1
+"let g:airline#extensions#bufferline#enabled = 1
+"let g:airline#extensions#neomake#enabled = 1
+"let airline#extensions#neomake#error_symbol = 'E:'
+"let airline#extensions#neomake#warning_symbol = 'W:'
+
+""""""""""""""""""""""""""""""""""""""""""""
+"               Lightline                  "
+"""""""""""""""""""""""""""""""""""""""""""""
+let g:lightline = { 'colorscheme': 'one' }
 
 """"""""""""""""""""""""""""""""""""""""""""
 "               Vim fzf                    "
@@ -208,6 +221,7 @@ let g:ycm_semantic_triggers = {
       \   ]
       \ }
 
+" VimWiki
 " Same as default, but with "markdown" and "text" removed.
 let g:ycm_filetype_blacklist = {
       \   'notes': 1,
@@ -219,6 +233,9 @@ let g:ycm_filetype_blacklist = {
       \   'infolog': 1,
       \   'mail': 1
       \ }
+" Set default syntax
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " don't show the help in normal mode
 let g:Lf_HideHelp = 1
@@ -238,6 +255,14 @@ let g:Lf_Gtagslabel = 'native-pygments'
 
 " Python
 let g:python_host_prog='/usr/bin/python2'
-let g:python3_host_prog='/usr/bin/python3'
+"let g:python3_host_prog='/usr/bin/python3'
 
 let g:ruby_host_prog = '~/.gem/ruby/2.3.0/bin/neovim-ruby-host'
+
+
+""""""""""""""""""""""""""""""""""""""""""""
+"                 VimJson                 "
+""""""""""""""""""""""""""""""""""""""""""""
+" Prevent brackets or quotes hide
+let g:vim_json_syntax_conceal = 0
+let g:indentLine_conceallevel = 0

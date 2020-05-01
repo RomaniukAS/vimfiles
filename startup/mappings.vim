@@ -42,7 +42,7 @@ nmap zj o<ESC>k
 
 map <Leader>q :q<CR>
 map <Leader><Leader>q :qall!<CR>
-map <Leader>w :w<CR>
+map <Leader><Leader>w :w<CR>
 
 nnoremap <silent> j j:redraw<CR>
 nnoremap <silent> k k:redraw<CR>
@@ -115,30 +115,46 @@ nnoremap J mzJ`z
 " Re-save file sith sudo
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
+""""""""""""""""""""""""""""""""""""""""""""
+"                 VimWiki                  "
+""""""""""""""""""""""""""""""""""""""""""""
+nmap \ww <Plug>VimwikiTabIndex
+nmap \wi <Plug>VimwikiDiaryIndex
 
 """"""""""""""""""""""""""""""""""""""""""""
 "                Git-gutter                "
 """"""""""""""""""""""""""""""""""""""""""""
-nmap <Leader>hr <Plug>GitGutterUndoHunk
+nmap <Leader>cu <Plug>GitGutterUndoHunk
 
 """"""""""""""""""""""""""""""""""""""""""""
 "                LeaderF                   "
 """"""""""""""""""""""""""""""""""""""""""""
 
-noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
-noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
-noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
-noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+"noremap <leader><leader>b :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+"noremap <leader><leader>m :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+"noremap <leader><leader>t :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+"noremap <leader><leader>l :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 
-noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
-noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+"noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
+"noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 
-" search visually selected text literally
-xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
-noremap go :<C-U>Leaderf! rg --recall<CR>
+"" search visually selected text literally
+"xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+"noremap go :<C-U>Leaderf! rg --recall<CR>
 
-noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
-noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
-noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
-noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
-noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+"noremap <leader><leader>r :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+"noremap <leader><leader>d :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+"noremap <leader><leader>o :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+"noremap <leader><leader>n :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+"noremap <leader><leader>p :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" Coc
+nmap <silent> gd <Plug>(coc-definition)

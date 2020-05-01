@@ -8,6 +8,14 @@ let g:LoupeCenterResults=0
 
 " Display line numbers
 set number
+
+" Activate mouse
+set mouse=a
+
+" Spell check
+set spell spelllang=en_us
+set spellfile=$HOME/.vim/spell/en.utf-8.add
+
 " Auto load file if it was changed
 set autoread
 set tabstop=4 
@@ -23,8 +31,8 @@ set shell=sh
 set timeoutlen=3000
 set updatetime=100
 
-" Turrn off .swp file creation
-set noswapfile
+" Turn off .swp file creation
+"set noswapfile
 
 " Use soft tab stop spaces instead of tab characters for indentation
 set expandtab
@@ -59,9 +67,6 @@ set path+=**
 
 " Display all matching files when we tab complete
 set wildmenu
-
-" Spell checking
-set spelllang=en_us
 
 " Required
 filetype off
