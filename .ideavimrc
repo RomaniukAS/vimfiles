@@ -9,6 +9,14 @@ set number
 set relativenumber
 set incsearch
 set keep-english-in-normal
+set keymodel^=startsel
+set commentary
+set ReplaceWithRegister
+set argtextobj
+set textobj-entire
+
+" Extends argtextobj
+let g:argtextobj_pairs="(:),{:},<:>"
 
 " actions
 nnoremap <space>q :action CloseContent<cr>
@@ -22,6 +30,9 @@ nnoremap <space>E :action Switcher<cr>
 nnoremap <space>a :action GotoAction<cr>
 nnoremap <space>b :action ToggleLineBreakpoint<cr>
 nnoremap <space>w :action SaveAll<cr>
+
+" Reformat code style
+nnoremap \r :action ReformatCode<CR>
 
 " Open recently closed files list window
 nmap <space>. :action RecentFiles<cr>
@@ -152,3 +163,4 @@ nnoremap g/ /
 
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+cnoremap <A-d> :action EditorPageDown<cr>
