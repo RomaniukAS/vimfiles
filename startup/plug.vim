@@ -26,4 +26,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Nginx
 Plug 'chr4/nginx.vim'
 
+" JavaScript highlight
+Plug 'pangloss/vim-javascript'
+
 call plug#end()

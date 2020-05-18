@@ -11,6 +11,12 @@ set incsearch
 set keep-english-in-normal
 set keymodel^=startsel
 set commentary
+set ReplaceWithRegister
+set argtextobj
+set textobj-entire
+
+" Extends argtextobj
+let g:argtextobj_pairs="(:),{:},<:>"
 
 " actions
 nnoremap <space>q :action CloseContent<cr>
